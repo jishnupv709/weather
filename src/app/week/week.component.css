@@ -1,0 +1,48 @@
+.card-columns {
+  column-count: 1; /* Adjust the number of columns */
+  column-gap: 1.25rem; /* Gap between columns */
+}
+
+.card {
+  display: inline-block; /* Prevent cards from breaking inside columns */
+  width: 100%; /* Make sure the cards fill up the entire column width */
+  margin-bottom: 1.25rem; /* Bottom margin between cards */
+  break-inside: avoid; /* Avoid breaking cards across columns */
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+.weather-condition i {
+  font-size: 1.5rem;
+  margin-right: 8px;
+}
+
+.temp-info p {
+  font-size: 0.9rem;
+}
+
+.sun-info p {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 767px) {
+  .card-columns {
+    column-count: 1; /* On small screens, display one column */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .card-columns {
+    column-count: 1; /* On medium screens, display two columns */
+  }
+}
+
+

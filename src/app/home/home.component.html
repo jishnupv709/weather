@@ -1,0 +1,40 @@
+<nav class="navbar bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand text-white">Weather APP</a>
+    <form class="d-flex align-items-center gap-2" role="search">
+      <ng-select
+        name="title"
+        #selectedItemRef
+        class=""
+        [items]="locations"
+        bindLabel="name"
+        bindValue="id"
+        placeholder="Select Location"
+        [searchable]="true"
+        [(ngModel)]="locationName"
+        (input)="getLocationInfo()"
+        (change)="onLocationChange($event)"
+      ></ng-select>
+      <button
+        type="button"
+        class="btn btn-dark"
+        (click)="getWeatherInfoBasedOnLocation()"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+</nav>
+
+<div class="container-fluid mt-3">
+  <mat-tab-group dynamicHeight>
+    <mat-tab label="Today">
+      <div>
+        <app-weather-card [lat]="lat" [lon]="lon"></app-weather-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="5 Day Forecast">
+      <app-week [lat]="lat" [lon]="lon"></app-week>
+    </mat-tab>
+  </mat-tab-group>
+</div>

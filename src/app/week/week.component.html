@@ -1,0 +1,215 @@
+<div class="container mt-5">
+  <div class="card-columns">
+    <!-- Loop through the weeklyWeather array and create a card for each day -->
+    <div
+    *ngFor="let Groupedforecast of forecastListGroupedData"
+      class="card shadow-sm mb-4"
+    >
+      <div class="card-body p-3">
+        <!-- Day and Date -->
+         <div class="text-center">
+          <h5 class="card-title text-primary">{{ Groupedforecast.date | date:'EEEE'  }}</h5>
+          <p class="card-text text-muted">{{Groupedforecast.date | date:'dd-MM-yyyy'}}</p>
+          <!-- <p class="card-text text-muted">{{forecast.dt_txt | date:'shortTime'}}</p> -->
+         </div>
+         <hr>
+        <!-- Weather Icon / Description -->
+        <div class="weather-condition mb-3">       
+
+        <!-- Temperature -->
+        <div class="temp-info mb-2">
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let forecast of Groupedforecast?.entries">
+              <div class="card">
+                <div class="card-body">
+                  <div class="text-center">
+                  <h5 class="card-title text-muted">{{forecast.dt_txt | date:'shortTime'}}</h5>
+                  
+                  <!-- Weather Icon -->
+                  <div class="mb-3">
+                    <img *ngIf="forecast.weather[0].description === 'clear sky'" src="assets/img/sun.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].description === 'overcast clouds'" src="assets/img/overcast clouds.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].description === 'broken clouds' || forecast.weather[0].description === 'few clouds'"  src="assets/img/partly-cloudy.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].description === 'scattered clouds'"  src="assets/img/scattered clouds.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].main === 'Drizzle'" src="assets/img/drizzle.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <!-- <img  *ngIf="forecast.weather[0].main === ''"src="assets/img/mist.png"  width="60px" class="img-fluid" alt="Weather Icon"> -->
+                    <img *ngIf="forecast.weather[0].description === 'light rain'" src="assets/img/light raining.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].description !== 'light rain' && forecast.weather[0].main === 'Rain'" src="assets/img/raining.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].main === 'Snow'" src="assets/img/snow.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <img *ngIf="forecast.weather[0].main === 'Thunderstorm'" src="assets/img/storm.png"  width="60px" class="img-fluid" alt="Weather Icon">
+                    <!-- <img src="assets/img/wind.png"  width="60px" class="img-fluid" alt="Weather Icon"> -->
+                    <!-- <img src="assets/img/hot.png"  width="60px" class="img-fluid" alt="Weather Icon"> -->
+                  </div>
+          
+                  <!-- Weather Information -->
+                  <!-- <p class="card-text"> {{forecast.weather[0].main}}</p> -->
+                  <p class="card-text text-info">{{forecast.weather[0].description}}</p>
+        
+                  
+                  <h5 class="card-title">{{forecast.main.temp}} °C</h5>
+                  <p>Feels Like:<strong> {{forecast.main.feels_like}} °C </strong></p>
+                </div>
+                  <!-- Temperature Information -->
+                  <div class="temp-info">
+                    <table class="table table-sm">
+                      <tbody>
+                        <tr>
+                          <th class="text-muted" scope="row">Min.Temp.</th>
+                          <td>{{forecast.main.temp_min}} °C</td>
+                        </tr>
+                        <tr>
+                          <th class="text-muted" scope="row">Max.Temp.</th>
+                          <td>{{forecast.main.temp_max}} °C</td>
+                        </tr>
+                        <tr>
+                          <th class="text-muted" scope="row">Humidity</th>
+                          <td>{{forecast.main.humidity}} %</td>
+                        </tr>
+                        <tr>
+                          <th class="text-muted" scope="row">Pressure</th>
+                          <td>{{forecast.main.pressure}} hPa</td>
+                        </tr>
+                        <tr>
+                          <th class="text-muted" scope="row">Wind Speed</th>
+                          <td>{{forecast.wind.speed}} m/s</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          
+          <!-- <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">12 am</th>
+                <th scope="col">3 am</th>
+                <th scope="col">6 am</th>
+                <th scope="col">9 am</th>
+                <th scope="col">12 pm</th>
+                <th scope="col">3 pm</th>
+                <th scope="col">6 pm</th>
+                <th scope="col">9 pm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="col">Weather</th>
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+                <td>
+                  <span><img src="assets/img/sun.png" width="40px" class="img-fluid" alt="Weather Icon"></span><br>
+                  <span><strong>{{ forecast.weather[0].main}}</strong></span><br>
+                  <span>{{ forecast.weather[0].description }}</span>
+                </td> 
+              </tr>
+              <tr>
+                <th scope="col">Temperature</th>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+              </tr>
+              <tr>
+                <th scope="col">Feels like</th>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+                <td>{{ forecast.main.temp_min }}°C</td>
+              </tr>
+              <tr>
+                <th scope="col">Min.Temp.
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+                  <td> {{ forecast.main.temp_min }}°C</td>
+              </tr>
+              <tr>
+                <th scope="col">Max.Temp.
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+                  <td> {{ forecast.main.temp_max }}°C</td>
+              </tr>
+            </tbody>
+          </table> -->
+        </div>
+
+        <!-- Sunrise / Sunset -->
+        <div class="sun-info text-muted">
+          <!-- <p class="mb-0">Sunrise: {{ day.sunrise }}</p>
+          <p class="mb-0">Sunset: {{ day.sunset }}</p> -->
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<div>
+  <!-- {{forecastList[0] | json}} -->
+  <!-- <ng-container *ngFor="let forecast of forecastList">
+    <br>-------------------------------------<br>
+    <p class="text-dark mb-0">{{forecast.dt_txt | date:'fullDate'}}-{{ forecast.dt_txt  | date:'shortTime' }}</p>
+    <br>-------------------------------------<br> -->
+
+    <!-- {{forecast | json}} -->
+    <!-- One Call API is needed for 1 weeeks api call data -->
+    <!-- https://www.freepik.com/icon/rainy-night_5370459 -->
+  <!-- </ng-container> -->
+</div>
+
+

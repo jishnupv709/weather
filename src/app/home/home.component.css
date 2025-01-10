@@ -1,0 +1,29 @@
+.navbar .form-select {
+  min-width: 200px;
+}
+
+.d-flex.align-items-center {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container-fluid {
+  padding: 16px;
+}
+
+@media (max-width: 576px) {
+  .navbar .form-select {
+    min-width: 200px;
+  }
+
+  .d-flex.align-items-center {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .btn-dark {
+    width: 100%;
+  }
+}

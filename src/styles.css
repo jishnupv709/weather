@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+html, body { 
+  height: 100%; 
+}
+
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+/* Fix the width of the ng-select input */
+ng-select {
+  width: 100%; /* Make it 100% of the container */
+  min-width: 200px; /* Set a reasonable minimum width */
+  max-width: 100%;  /* Ensure ng-select doesn't exceed container width */
+}
+
+/* Ensure the dropdown panel is wide enough */
+::ng-deep .ng-dropdown-panel {
+  width: 100% !important;  /* Make dropdown take up full width of the container */
+  min-width: 200px !important; /* Set a minimum width to avoid dropdown becoming too small */
+  max-width: 100% !important;  /* Ensure it doesn't exceed the container's width */
+}
+
+/* For mobile responsiveness, make sure ng-select input and dropdown fit smaller screens */
+@media (max-width: 767px) {
+  ng-select {
+      min-width: 100%; /* Allow full width on mobile screens */
+      max-width: 100%;  /* Ensure it doesn't exceed container */
+  }
+
+  ::ng-deep .ng-dropdown-panel {
+      width: 100% !important; /* Full width of the parent container */
+      min-width: 100% !important; /* Prevent dropdown from being smaller than the input */
+  }
+}
+
+/* For tablet and larger screens (>= 768px), keep the original width but let it be responsive */
+@media (min-width: 768px) {
+  ng-select {
+      min-width: 200px; /* Set a reasonable minimum width */
+      max-width: 600px;  /* Limit the width on large screens */
+  }
+
+  ::ng-deep .ng-dropdown-panel {
+      min-width: 200px !important; /* Ensure dropdown has a proper width */
+      max-width: 600px !important; /* Limit the dropdown panel width */
+  }
+}
