@@ -14,6 +14,7 @@
         [(ngModel)]="locationName"
         (input)="getLocationInfo()"
         (change)="onLocationChange($event)"
+        notFoundText="No results available for your search"
       ></ng-select>
       <button
         type="button"
