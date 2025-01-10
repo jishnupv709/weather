@@ -1,4 +1,4 @@
-<div id="weatherCarousel" class="carousel slide m-5" data-mdb-ride="carousel" data-mdb-carousel-init>
+<!-- <div id="weatherCarousel" class="carousel slide m-5" data-mdb-ride="carousel" data-mdb-carousel-init>
   <div class="carousel-inner rounded-5">
     <div class="carousel-item active">
       <div class="d-flex justify-content-between align-items-center px-4 py-3 gradient-custom" style="height: 230px;">
@@ -13,19 +13,18 @@
           <img *ngIf="firstweatherDescription === 'broken clouds' || firstweatherDescription === 'few clouds'"  src="assets/img/partly-cloudy.png" width="150px" class="img-fluid" alt="Weather Icon">
           <img *ngIf="firstweatherDescription === 'scattered clouds'"  src="assets/img/scattered clouds.png" width="150px" class="img-fluid" alt="Weather Icon">
           <img *ngIf="firstweatherMain === 'Drizzle'" src="assets/img/drizzle.png" width="150px" class="img-fluid" alt="Weather Icon">
-          <!-- <img  *ngIf="firstweatherMain === ''"src="assets/img/mist.png" width="150px" class="img-fluid" alt="Weather Icon"> -->
+          <img  *ngIf="firstweatherMain === ''"src="assets/img/mist.png" width="150px" class="img-fluid" alt="Weather Icon">
           <img *ngIf="firstweatherMain === 'Rain'" src="assets/img/rain.png" width="150px" class="img-fluid" alt="Weather Icon">
           <img *ngIf="firstweatherMain === 'Snow'" src="assets/img/snow.png" width="150px" class="img-fluid" alt="Weather Icon">
           <img *ngIf="firstweatherMain === 'Thunderstorm'" src="assets/img/storm.png" width="150px" class="img-fluid" alt="Weather Icon">
-          <!-- <img src="assets/img/wind.png" width="150px" class="img-fluid" alt="Weather Icon"> -->
-          <!-- <img src="assets/img/hot.png" width="150px" class="img-fluid" alt="Weather Icon"> -->
+          <img src="assets/img/wind.png" width="150px" class="img-fluid" alt="Weather Icon">
+          <img src="assets/img/hot.png" width="150px" class="img-fluid" alt="Weather Icon">
           <br> <br>
           <p class="text-dark mb-0">{{firstweatherDescription }}</p>
         </div>
       </div>
     </div>
 
-    <!-- Add more carousel items as needed. Example below: -->
     <div class="carousel-item">
       <div class="d-flex justify-content-around text-center align-items-center px-4 py-3 bg-light" style="height: 230px;">
         <div class="flex-column">
@@ -67,59 +66,135 @@
     </div>
   </div>
 
-  <!-- Optional: Add carousel controls (previous and next buttons) -->
-  <!-- <button class="carousel-control-prev" type="button" data-mdb-target="#weatherCarousel" data-mdb-slide="prev">
+  Optional: Add carousel controls (previous and next buttons)
+  <button class="carousel-control-prev" type="button" data-mdb-target="#weatherCarousel" data-mdb-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
   <button class="carousel-control-next" type="button" data-mdb-target="#weatherCarousel" data-mdb-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </button> -->
-</div>
-<div class="container">
+  </button>
+</div> -->
 
-  <div class="weather-details d-flex justify-content-between align-items-center p-3 ">
-    <div class="weather-item text-center">
+<!--  -->
+<div class="container-fluid py-4 gradient-custom mt-2 mb-5" style="border-radius: 40px;">
+  <div class="row align-items-center text-center text-md-start m-auto">
+    <!-- Column 1 -->
+    <div class="col-12 col-md-4 px-5">
+      <div class="mb-3">
+        <h1 class="fw-bold text-muted">{{forecastList[0].dt_txt | date:'EEEE'}}</h1>
+      </div>
+      <br>
+      <div class="mb-3">
+        <h1 class="display-4 fw-bold  mb-6 fs-2">24.44 °C</h1>
+      </div>
+      <div>
+        <p class="text-dark fw-semibold text-muted mt-5 fs-5">{{locationInfo.name}}</p>
+        <p class="text-dark text-muted mb-6 fs-6">{{forecastList[0].dt_txt | date:'MMMM d, yyyy'}}</p>
+      </div>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="col-12 col-md-4 d-none d-md-flex justify-content-center">
+      <!-- Empty column for spacing (visible only on medium screens and above) -->
+    </div>
+
+    <!-- Column 3 -->
+    <div class="col-12 col-md-4 px-4 text-center text-md-end">
+      <!-- Weather Icons -->
+      <img *ngIf="firstweatherDescription === 'clear sky'" src="assets/img/sun.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherDescription === 'overcast clouds'" src="assets/img/cloudy.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherDescription === 'broken clouds' || firstweatherDescription === 'few clouds'" src="assets/img/partly-cloudy.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherDescription === 'scattered clouds'" src="assets/img/scattered clouds.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherMain === 'Drizzle'" src="assets/img/drizzle.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherMain === 'Rain'" src="assets/img/rain.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherMain === 'Snow'" src="assets/img/snow.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <img *ngIf="firstweatherMain === 'Thunderstorm'" src="assets/img/storm.png" width="150px" class="img-fluid mb-3" alt="Weather Icon">
+      <!-- Weather Description -->
+      <p class="text-dark fw-bold mb-0 text-center text-md-end custom-align">{{firstweatherDescription}}</p>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container">
+  
+<div class="row text-center">
+  <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
+    <h4>Wind Speed</h4>
+    <img src="assets/img/wind.png" width="50px" class="img-fluid mb-2" alt="Wind Icon"><br>
+    <span>{{forecastList[0].wind.speed}} m/s</span>
+  </div>
+  <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
+    <h4>Pressure</h4>
+    <img src="assets/img/pressure.png" width="50px" class="img-fluid mb-2" alt="Pressure Icon"><br>
+    <span>{{forecastList[0].main.pressure}} hPa</span>
+  </div>
+  <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
+    <h4>Humidity</h4>
+    <img src="assets/img/humidity.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
+    <span>{{forecastList[0].main.humidity}} %</span>
+  </div>
+  <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
+    <h4>population</h4>
+    <img src="assets/img/population.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
+    <span>{{locationInfo.population}}</span>
+  </div>
+  <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
+    <h4>sunrise</h4>
+    <img src="assets/img/sunrise.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
+    <span>  {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}</span>
+  </div>
+  <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
+    <h4>sunset</h4>
+    <img src="assets/img/sunset.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
+    <span>  {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}
+    </span>
+  </div>
+
+</div>
+  <!-- <div class="weather-details d-flex justify-content-between align-items-center p-3 row">
+    <div class="weather-item text-center col-22 col-sm-2 col-md-2 col-lg-2">
       <h4>Wind Speed</h4>
       <img src="assets/img/wind.png" width="50px" class="img-fluid mb-2" alt="Wind Icon"><br>
       <span>{{forecastList[0].wind.speed}} m/s</span>
     </div>
-    <div class="weather-item text-center">
+    <div class="weather-item text-center col-1">
       <h4>Pressure</h4>
       <img src="assets/img/pressure.png" width="50px" class="img-fluid mb-2" alt="Pressure Icon"><br>
       <span>{{forecastList[0].main.pressure}} hPa</span>
     </div>
-    <!-- <div class="weather-item text-center">
+    <div class="weather-item text-center">
       <h4>Sea Level</h4>
       <img src="assets/img/sea level.png" width="50px" class="img-fluid mb-2" alt="Sea Level Icon"><br>
       <span>{{forecastList[0].main.sea_level}}</span>
-    </div> -->
-    <div class="weather-item text-center">
+    </div>
+    <div class="weather-item text-center col-1">
       <h4>Humidity</h4>
       <img src="assets/img/humidity.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
       <span>{{forecastList[0].main.humidity}} %</span>
     </div>
     
-    <div class="weather-item text-center">
+    <div class="weather-item text-center col-1">
       <h4>population</h4>
       <img src="assets/img/population.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
       <span>{{locationInfo.population}}</span>
     </div>
     
-    <div class="weather-item text-center">
+    <div class="weather-item text-center col-1">
       <h4>sunrise</h4>
       <img src="assets/img/sunrise.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
-      <span> (timestamp): {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}</span>
+      <span>  {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}</span>
     </div> 
     
-    <div class="weather-item text-center">
+    <div class="weather-item text-center col-1">
       <h4>sunset</h4>
       <img src="assets/img/sunset.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
-      <span> (timestamp): {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}
+      <span>  {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}
       </span>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <p>Sunrise:{{ (locationInfo.sunrise * 1000 + locationInfo.timezone * 1000) | date: 'hh:mm:ss a' : dynamicTimezone(locationInfo.timezone) }}</p>

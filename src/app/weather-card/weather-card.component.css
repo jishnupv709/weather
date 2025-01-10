@@ -3,10 +3,22 @@
     background: #ffffff;
     
     /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 236, 210, 1));
+    /* background: -webkit-linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 236, 210, 1)); */
+    background: #F2F2F2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffffe6, #fae8d1, #fae8d1, #fae8d1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffe6, #fae8d1, #fae8d1, #fae8d1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 236, 210, 1))
+    /* background: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 236, 210, 1)) */
+    background: #F2F2F2;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffffe6, #fae8d1, #fae8d1, #fae8d1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffffe6, #fae8d1, #fae8d1, #fae8d1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     }
     /*  */
-    
+    @media (min-width: 768px) {
+        .custom-align {
+          margin-right: 3rem; 
+        }
+      }
