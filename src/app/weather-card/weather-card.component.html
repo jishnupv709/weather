@@ -144,13 +144,12 @@
   <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
     <h4>sunrise</h4>
     <img src="assets/img/sunrise.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
-    <span>  {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}</span>
+    <span> {{ (locationInfo.sunrise + locationInfo.timezone) * 1000 | date: 'h:mm a' :'UTC'}}  </span>
   </div>
   <div class="col-col-12 col-sm-6 col-md-4 col-lg-2">
     <h4>sunset</h4>
     <img src="assets/img/sunset.png" width="50px" class="img-fluid mb-2" alt="Humidity Icon"><br>
-    <span>  {{ locationInfo.sunrise * 1000 + locationInfo.timezone * 1000 }}
-    </span>
+    <span> {{ (locationInfo.sunset + locationInfo.timezone) * 1000 | date: 'h:mm a' :'UTC'}} </span>
   </div>
 
 </div>
@@ -196,10 +195,5 @@
     </div>
   </div> -->
 </div>
-
-<p>Sunrise:{{ (locationInfo.sunrise * 1000 + locationInfo.timezone * 1000) | date: 'hh:mm:ss a' : dynamicTimezone(locationInfo.timezone) }}</p>
-<p>Sunset: {{ locationInfo.sunset * 1000 + locationInfo.timezone * 1000 | date: 'hh:mm:ss a':'UTC' }}</p>
-
-
   
   
